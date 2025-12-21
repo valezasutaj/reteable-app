@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card-container {
+    width: 30%;
+    height: 90%;
+    background: linear-gradient(
+        to bottom,
+        #5b7b85,
+        #46515b,
+        #ffffff
+    );
+    display: flex;
+    align-items: center;
+    border-top-left-radius: 30px;
+}
+
+.card {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    img {
+        background-color: lightpink;
+        object-fit: cover;
+        width: 85%;
+        height: 75%;
+        border-top-left-radius: 30px;
+    }
+}
+
+.buttons {
+    display: flex;
+    gap: 7px;
+    button {
+        width: 60px;
+        height: 60px;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+}
