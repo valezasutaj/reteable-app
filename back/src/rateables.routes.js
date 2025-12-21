@@ -3,6 +3,6 @@ const router = express.Router();
 const controller = require('./rateables.controller');
 
 router.get('/rateables', controller.getRateables);
-router.post('/like', controller.likeItem);
+router.post('/rateables/:id/like', controller.likeItem);
 
 module.exports = router;

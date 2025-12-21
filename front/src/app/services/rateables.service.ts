@@ -16,6 +16,9 @@ export class RateablesService {
     }
 
     like(id: number) {
-        return this.http.post(`${this.apiUrl}/like`, { id });
+        return this.http.post(
+            `${this.apiUrl}/${id}/like`,
+            {}
+        );
     }
 }

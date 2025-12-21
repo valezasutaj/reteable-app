@@ -11,9 +11,7 @@ import { Rateable } from '../../models/rateables.model';
   styleUrls: ['./rateables.component.css']
 })
 export class RateablesComponent implements OnInit {
-
   items = signal<Rateable[]>([]);
-
   constructor(private api: RateablesService) {}
 
   ngOnInit() {

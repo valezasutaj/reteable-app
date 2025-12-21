@@ -1,16 +1,33 @@
 <div class="container" *ngIf="items().length > 0; else noMore">
     <div class="card-container">
         <div class="card">
-            <img *ngIf="items()[0].image" [src]="items()[0].image" class="image" />
-            <p>{{ items()[0].text }}</p>
+            <div class="like">
+                <i class="fa-regular fa-heart"></i>
+                <span>{{ items()[0].likes }} Likes</span>
+            </div>
+            <ng-container *ngIf="items()[0].image; else textOnly">
+                <img [src]="items()[0].image" class="image" />
+            </ng-container>
+
+            <ng-template #textOnly>
+                <p class="text-only">{{ items()[0].text }}</p>
+            </ng-template>
+
+            <p *ngIf="items()[0].image">{{ items()[0].text }}</p>
             <div class="buttons">
-                <button class="skip" (click)="skip()">Skip</button>
-                <button class="like" (click)="like(items()[0].id)">Like ({{ items()[0].likes }})</button>
+                <button (click)="skip()"><i class="fa-regular fa-x"></i></button>
+                <button (click)="like(items()[0].id)"><i class="fa-regular fa-heart"></i></button>
             </div>
         </div>
     </div>
 </div>
 
 <ng-template #noMore>
-    <p>No more items!</p>
+    <div class="container">
+    <div class="card-container">
+        <div class="card">
+            <p class="text-only">No more items!</p>
+        </div>
+    </div>
+    </div>
 </ng-template>
