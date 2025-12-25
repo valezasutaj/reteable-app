@@ -1,18 +1,51 @@
+.filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px; 
+}
+
+.filters {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 16px;
+}
+
+.filters button {
+    height: 44px;
+    min-width: 90px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 14px;
+}
+
+.filters button:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 85vh;
 }
 
 .card-container {
     width: 90%;
-    height: 90%;
+    height: 100%;
     background: linear-gradient(
         to bottom,
-        #5a627a,
-        #282828,
-        #000000
+        #79637c,
+        #3e303f,
+        #050505
     );
     display: flex;
     align-items: center;
@@ -50,17 +83,16 @@
         border-radius: 50px;
         font-size: 16px;
         cursor: pointer;
-        background-color: rgba(255, 255, 255, 0.05);
-        color: rgba(255, 255, 255, 0.355);
+        color: rgba(255, 255, 255, 0.529);
         i {
             font-size: 23px;
         }
     }
 }
 
-.like {
+.likeskip {
     margin-bottom: 15px;
-    color: rgba(255, 255, 255, 0.355);
+    color: rgba(255, 255, 255, 0.529);
     font-size: 15px;
     i {
         margin-right: 5px;
@@ -70,5 +102,7 @@
 
 .text-only {
     width: 100%;
+    height: 78%;
     text-align: center;
+    align-content: center;
 }

@@ -1,33 +1,48 @@
-<div class="container" *ngIf="items().length > 0; else noMore">
-    <div class="card-container">
-        <div class="card">
-            <div class="like">
-                <i class="fa-regular fa-heart"></i>
-                <span>{{ items()[0].likes }} Likes</span>
-            </div>
-            <ng-container *ngIf="items()[0].image; else textOnly">
-                <img [src]="items()[0].image" class="image" />
-            </ng-container>
-
-            <ng-template #textOnly>
-                <p class="text-only">{{ items()[0].text }}</p>
-            </ng-template>
-
-            <p *ngIf="items()[0].image">{{ items()[0].text }}</p>
-            <div class="buttons">
-                <button (click)="skip()"><i class="fa-regular fa-x"></i></button>
-                <button (click)="like(items()[0].id)"><i class="fa-regular fa-heart"></i></button>
-            </div>
+<div class="filter-container">
+    <div class="filter-card">
+        <div class="filters">
+            <button (click)="filter.set('all')">All</button>
+            <button (click)="filter.set('image')">Images</button>
+            <button (click)="filter.set('text')">Text</button>
         </div>
     </div>
 </div>
 
-<ng-template #noMore>
+@if (visibleItems().length > 0) {
+    @let item = visibleItems()[0];
     <div class="container">
-    <div class="card-container">
-        <div class="card">
-            <p class="text-only">No more items!</p>
+        <div class="card-container">
+            <div class="card">
+                <div class="likeskip">
+                    <i class="fa-regular fa-heart"></i>
+                    <span>{{ item.likes }} Likes</span>
+                    <span style="margin-left: 10px;">{{ item.skips }} Skips</span>
+                </div>
+
+                @if (item.image) {
+                    <img [src]="item.image" class="image" alt="Rateable image" />
+                } @else {
+                    <p class="text-only">{{ item.text }}</p>
+                }
+
+                @if (item.image) {
+                    <p>{{ item.text }}</p>
+                }
+
+                <div class="buttons">
+                    <button (click)="deletew()" style="background-color: rgba(227, 0, 0, 0.07);" >delete</button>
+                    <button (click)="skip()" style="background-color: rgba(255, 255, 255, 0.067);" >skip</button>
+                    <button (click)="like()" style="background-color: rgba(0, 181, 27, 0.07);" >like</button>
+                </div>
+            </div>
         </div>
     </div>
+} @else {
+    <div class="container">
+        <div class="card-container">
+            <div class="card">
+                <p class="text-only">No more items!</p>
+            </div>
+        </div>
     </div>
-</ng-template>
+}
